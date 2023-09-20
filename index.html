@@ -1,0 +1,304 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Kraya Ecommerce Website</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+            rel="stylesheet"/>
+    </head>
+    <body>
+        <!------------------------------------------------------------------------ HEADER ----------------------------------------------------------------------------------->
+        <header>
+            <div class="top-header">
+                <div class="nav-contact-us">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>need help?</span>
+                </div>
+                <div class="top-head-elements">
+                    <ul>
+                        <li class="wish-list">
+                            <a href="#" id="wish-list-text">wishlist</a>
+                            <a href="#" id="nav-wish-list-icon"><i
+                                    class="fa-regular fa-heart"></i></a>
+                            <div id="wish-list-counter">0</div>
+                        </li>
+                        <li class="cart">
+                            <a href="#" id="cart-text">cart </a>
+                            <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+                            <div id="add-to-cart-counter">0</div>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-regular fa-user"></i></a>
+                            <a href="#" class="profile-name">subhakanta mishra</a>
+                            <i class="fa-solid fa-sort-down"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <nav>
+                <a href="#"><img src="/assets/icons/logo.svg" alt="kraya logo"></a>
+                <ul>
+                    <li><a href="#" id="display-all-phones"
+                            class="slide-fwd-center active">phone</a></li>
+                    <li><a href="#">television</a></li>
+                    <li><a href="#">refrigerator</a></li>
+                    <li><a href="#">laptop</a></li>
+                    <li><a href="#">washing machine</a></li>
+                    <li><a href="#">downloads</a></li>
+                </ul>
+                <div class="search-box-div"><input type="search" name=""
+                        id="search-box" placeholder="Search for Products">
+                    <a id="search-product">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <!-------------------------------------------------------------- Title of main components --------------------------------------------------------------------------->
+        <div class="main-content-titles">
+            <div class="below-nav-elements">
+                <div class="home-mobile">
+                    <span>home / mobiles</span>
+                </div>
+                <div class="sort-by-text">
+                    <span class="results-text">Showing <span
+                            id="result-count-phones">0</span> of <span
+                            id="phone-count">90</span> results for <span
+                            id="search-keyword">"Phones"</span></span>
+                    <div class="sort-by-list">
+                        <ul>
+                            <li>Sort By</li>
+                            <li class="sort-by-clickables" id="ratings-sort"><a
+                                    href="#">Rating</a></li>
+                            <li class="sort-by-clickables"><a href="#"
+                                    id="sort-low-high">Price low-High</a></li>
+                            <li class="sort-by-clickables"><a href="#"
+                                    id="newest-first">Newest First</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------------------------------------------------------------------- Mobile buttons ------------------------------------------------------------------------------->
+        <div class="mobile-device-buttons">
+            <div class="sort-by-btn">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+                <span>Sort By</span>
+            </div>
+            <div id="filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                <span>Filters</span>
+            </div>
+        </div>
+
+        <!------------------------------------------------------------- Total results counter and view---------------------------------------------------------------------------->
+        <div class="total-results">
+            <p>9 Results Found</p>
+        </div>
+        <!---------------------------------------------------------------------- Main content -------------------------------------------------------------------------------->
+        <div class="main-content">
+            <!-------------------------------------------------- side panel of the page containing all filters  ----------------------------------------------------------------->
+            <div id="side-panel">
+
+                <!-- filter components of side panel (collapse/expandable state)-->
+                <div class="filters side-panel-divs">
+                    <div id="close-filter">X</div>
+                    <div id="filter-drop-down-heading">
+                        <span>filters</span>
+
+                        <a href="#" id="clear-all"><span id="clear-all-span">clear
+                                all</span></a>
+                    </div>
+                    <div id="filter-contents">
+                    </div>
+                </div>
+                <!-- price components of side panel (collapse/expandable state) -->
+                <div class="price-products side-panel-divs" id="price-heading">
+                    <div class="drop-down-heading">
+                        <span>Price</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                    <div id="price-contents">
+                        <!-- price slider component -->
+                        <div id="slider">
+                        </div>
+                        <div class="price-range">
+                            <div class="pricedata" id="minprice">100</div>
+                            <div class="pricedata" id="maxprice">1000</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand components of side panel (collapse/expandable state) -->
+                <div class="brand side-panel-divs">
+                    <div id="drop-down-heading">
+                        <span>Brand</span>
+                        <a href="#" id="brand-btn"><i class="fa-solid
+                                fa-angle-down"></i></a>
+                    </div>
+                    <div id="brand-contents">
+                        <ul>
+                            <li><input type="checkbox" name="" id="google"
+                                    class="filter-checkbox" label="google">Google</li>
+                            <li><input type="checkbox" name="" id="apple"
+                                    label="apple" class="filter-checkbox"> Apple</li>
+                            <li><input type="checkbox" name="" id="xiaomi"
+                                    label="xiaomi" class="filter-checkbox">Xiaomi</li>
+                        </ul>
+                        <span>+ show more</span>
+                    </div>
+                </div>
+
+                <div class="battery-capacity side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>Batter Capacity</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+                <div class="screen-size side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>Screen Size</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+                <div class="ram side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>RAM</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+                <div class="customer-ratings side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>Customer Ratings</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+                <div class="resolution-type side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>Resolution Type</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+                <div class="operating-system side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>Operating System</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+                <div class="screen-size side-panel-divs">
+                    <div class="drop-down-heading">
+                        <span>Screen Size</span>
+                        <a href="#"><i class="fa-solid fa-angle-down"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!--------------------------------------------------- primary space where product cards are printed ----------------------------------------------------------------->
+            <div id="results-page">
+
+                <!-- Structure defined in the JS file that will be pasted here -->
+            </div>
+        </div>
+        <!-- -----------------------------------------------------------------------Footer---------------------------------------------------------------------------------- -->
+        <footer>
+
+
+            <div id="scroll-to-top">
+                <i class="fa-solid fa-angle-up"></i>
+            </div>
+            <div class="subscribe-follow">
+                <div class="stay-in-touch-subscribe">
+                    <div class="stay-in-touch-text">
+                        <span>let's stay in touch</span>
+                        <span>get updates on sales specials and more</span>
+                    </div>
+                    <div class="subscribe-text">
+                        <div class="input-box-div">
+                            <input type="text" name="" id="email-input"
+                                placeholder="Email" class="input-box">
+                            <i class="fa-solid fa-circle-check" id="verified"></i>
+                            <i class="fa-solid fa-circle-xmark"
+                                id="not-verified"></i>
+                            <button id="subscribe-btn">subscribe</button>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="follow-kraya-div">
+                    <div class="follow-kraya-text">
+                        <span>follow kraya.</span>
+                        <span>We want to hear from you</span>
+                    </div>
+                    <div class="social-media-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-about">
+
+                <ul>
+                    <li id="footer-list-heading">about</li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+                <ul>
+                    <li id="footer-list-heading">support</li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Cancellation & Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+                <ul>
+                    <li id="footer-list-heading">policy</li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Intellectual Property</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+                <div class="mail-us">
+                    <span class="footer-list-heading">mail us</span>
+                    <span>17187 N. Laurel Park Dr., Ste. 110 Livonia, MI 48152
+                        USA</span>
+                </div>
+                <div class="contact-number">
+                    <span>1800 123 4567</span>
+                    <span>Service hours: 09:00-21:00</span>
+                    <div class="btn-chat-support">
+                        <a href="#">CHAT SUPPORT</a>
+                    </div>
+                    <div class="payment-methods">
+                        <span>PAYMENT METHODS</span>
+                        <div class="payment-icons">
+                            <img src="/assets/icons/credit-card.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copy-right">
+                <span>Copyright © 2010 - 2018 commerce factory. All Rights
+                    Reserved</span>
+            </div>
+        </footer>
+        <!-- --------------------------Script File--------------------------------- -->
+        <script src="https://code.jquery.com/jquery-3.6.4.js"
+            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+            crossorigin="anonymous"></script>
+        <!-- For Jquery slider from code.jquery -->
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script type="module" src="/script.js"></script>
+        <script type="module" src="/modules.js"></script>
+    </body>
+</html>
